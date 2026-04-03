@@ -15,7 +15,7 @@ Checkboxes track completion. Tasks are ordered by dependency — complete earlie
 - [x] Install and configure Prisma ORM, run `prisma init`
 
 ### Database Schema & Migrations
-- [ ] Write Prisma schema for `User` model
+- [x] Write Prisma schema for `User` model
 - [ ] Write Prisma schema for `Symptom` and `SymptomLog` models
 - [ ] Write Prisma schema for `MoodLog` model
 - [ ] Write Prisma schema for `Medication` and `MedicationLog` models
