@@ -26,13 +26,13 @@ Checkboxes track completion. Tasks are ordered by dependency — complete earlie
 - [x] Write seed script to insert default habits (Sleep Duration, Water Intake, Exercise, etc.)
 
 ### Authentication
-- [ ] Implement `POST /api/auth/register` — hash password with bcrypt, return JWT
-- [ ] Implement `POST /api/auth/login` — verify credentials, return access + refresh tokens
-- [ ] Implement `POST /api/auth/refresh` — validate refresh token, issue new access token
-- [ ] Implement `POST /api/auth/logout` — invalidate refresh token
-- [ ] Implement `POST /api/auth/forgot-password` — generate reset token, send email
-- [ ] Implement `POST /api/auth/reset-password` — validate token, update password hash
-- [ ] Write JWT auth middleware to protect routes
+- [x] Implement `POST /api/auth/register` — hash password with bcrypt, return JWT
+- [x] Implement `POST /api/auth/login` — verify credentials, return access + refresh tokens
+- [x] Implement `POST /api/auth/refresh` — validate refresh token, issue new access token
+- [x] Implement `POST /api/auth/logout` — invalidate refresh token
+- [x] Implement `POST /api/auth/forgot-password` — generate reset token, send email
+- [x] Implement `POST /api/auth/reset-password` — validate token, update password hash
+- [x] Write JWT auth middleware to protect routes
 
 ### User Endpoints
 - [ ] Implement `GET /api/users/me` — return current user profile

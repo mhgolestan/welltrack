@@ -28,16 +28,34 @@ model User {
   timezone     String   @default("UTC")
   createdAt    DateTime @default(now())
 
+  // Password reset (single active token per user)
+  passwordResetToken  String?
+  passwordResetExpiry DateTime?
+
   // Relations
-  symptoms      Symptom[]
-  symptomLogs   SymptomLog[]
-  moodLogs      MoodLog[]
-  medications   Medication[]
+  symptoms       Symptom[]
+  symptomLogs    SymptomLog[]
+  moodLogs       MoodLog[]
+  medications    Medication[]
   medicationLogs MedicationLog[]
-  habits        Habit[]
-  habitLogs     HabitLog[]
+  habits         Habit[]
+  habitLogs      HabitLog[]
+  refreshTokens  RefreshToken[]
 
   @@map("users")
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  userId    String
+  tokenHash String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("refresh_tokens")
 }
 
 // ─── Symptoms ────────────────────────────────────────────────────────────────
