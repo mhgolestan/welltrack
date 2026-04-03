@@ -23,7 +23,7 @@ describe('POST /api/auth/register', () => {
     const res = await request(app).post('/api/auth/register').send(validPayload);
 
     expect(res.status).toBe(201);
-    expect(res.body).toHaveProperty('token');
+    expect(res.body).toHaveProperty('accessToken');
     expect(res.body.user).toMatchObject({
       email: 'alice@test.com',
       displayName: 'Alice',

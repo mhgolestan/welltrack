@@ -35,9 +35,9 @@ Checkboxes track completion. Tasks are ordered by dependency — complete earlie
 - [x] Write JWT auth middleware to protect routes
 
 ### User Endpoints
-- [ ] Implement `GET /api/users/me` — return current user profile
-- [ ] Implement `PATCH /api/users/me` — update display name and timezone
-- [ ] Implement `DELETE /api/users/me` — delete user and all associated data (cascade)
+- [x] Implement `GET /api/users/me` — return current user profile
+- [x] Implement `PATCH /api/users/me` — update display name and timezone
+- [x] Implement `DELETE /api/users/me` — delete user and all associated data (cascade)
 
 ### Symptom Endpoints
 - [ ] Implement `GET /api/symptoms` — return system defaults + user's custom symptoms
