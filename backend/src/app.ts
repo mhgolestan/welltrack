@@ -1,6 +1,7 @@
 import express from 'express';
 import authRoutes from './routes/auth.routes';
 import userRoutes from './routes/user.routes';
+import { symptomRouter, symptomLogRouter } from './routes/symptom.routes';
 import { requireAuth, AuthRequest } from './middleware/auth.middleware';
 
 const app = express();
@@ -13,6 +14,8 @@ app.get('/health', (_req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/symptoms', symptomRouter);
+app.use('/api/symptom-logs', symptomLogRouter);
 
 // Test-only route to verify auth middleware
 app.get('/api/auth/me-test', requireAuth, (req: AuthRequest, res) => {

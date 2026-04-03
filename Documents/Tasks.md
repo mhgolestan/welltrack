@@ -40,14 +40,14 @@ Checkboxes track completion. Tasks are ordered by dependency — complete earlie
 - [x] Implement `DELETE /api/users/me` — delete user and all associated data (cascade)
 
 ### Symptom Endpoints
-- [ ] Implement `GET /api/symptoms` — return system defaults + user's custom symptoms
-- [ ] Implement `POST /api/symptoms` — create custom symptom for current user
-- [ ] Implement `PATCH /api/symptoms/:id` — update symptom (own or toggle `is_active`)
-- [ ] Implement `DELETE /api/symptoms/:id` — delete custom symptom (block deleting system ones)
-- [ ] Implement `GET /api/symptom-logs` with `startDate`, `endDate`, `limit`, `offset` query params
-- [ ] Implement `POST /api/symptom-logs` — create log entry
-- [ ] Implement `PATCH /api/symptom-logs/:id` — edit own log entry
-- [ ] Implement `DELETE /api/symptom-logs/:id` — delete own log entry
+- [x] Implement `GET /api/symptoms` — return system defaults + user's custom symptoms
+- [x] Implement `POST /api/symptoms` — create custom symptom for current user
+- [x] Implement `PATCH /api/symptoms/:id` — update symptom (own or toggle `is_active`)
+- [x] Implement `DELETE /api/symptoms/:id` — delete custom symptom (block deleting system ones)
+- [x] Implement `GET /api/symptom-logs` with `startDate`, `endDate`, `limit`, `offset` query params
+- [x] Implement `POST /api/symptom-logs` — create log entry
+- [x] Implement `PATCH /api/symptom-logs/:id` — edit own log entry
+- [x] Implement `DELETE /api/symptom-logs/:id` — delete own log entry
 
 ### Mood Endpoints
 - [ ] Implement `GET /api/mood-logs` with `startDate`, `endDate` params
