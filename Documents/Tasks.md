@@ -12,7 +12,7 @@ Checkboxes track completion. Tasks are ordered by dependency — complete earlie
 - [ ] Configure environment variables (`.env`, `.env.example`) for DB URL, JWT secrets, etc.
 - [x] Set up ESLint + Prettier
 - [ ] Initialize PostgreSQL database (local dev)
-- [ ] Install and configure Prisma ORM, run `prisma init`
+- [x] Install and configure Prisma ORM, run `prisma init`
 
 ### Database Schema & Migrations
 - [ ] Write Prisma schema for `User` model
