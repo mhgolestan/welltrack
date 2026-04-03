@@ -1,8 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
@@ -10,4 +8,150 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+}
+
+// ─── Enums ───────────────────────────────────────────────────────────────────
+
+enum HabitTrackingType {
+  BOOLEAN
+  NUMERIC
+  DURATION
+}
+
+// ─── User ────────────────────────────────────────────────────────────────────
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  displayName  String
+  timezone     String   @default("UTC")
+  createdAt    DateTime @default(now())
+
+  // Relations
+  symptoms      Symptom[]
+  symptomLogs   SymptomLog[]
+  moodLogs      MoodLog[]
+  medications   Medication[]
+  medicationLogs MedicationLog[]
+  habits        Habit[]
+  habitLogs     HabitLog[]
+
+  @@map("users")
+}
+
+// ─── Symptoms ────────────────────────────────────────────────────────────────
+
+model Symptom {
+  id       String  @id @default(uuid())
+  userId   String? // null = system default
+  name     String
+  category String
+  isActive Boolean @default(true)
+
+  user User?        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  logs SymptomLog[]
+
+  @@map("symptoms")
+}
+
+model SymptomLog {
+  id        String   @id @default(uuid())
+  userId    String
+  symptomId String
+  severity  Int // 1–10
+  notes     String?
+  loggedAt  DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  symptom Symptom @relation(fields: [symptomId], references: [id], onDelete: Cascade)
+
+  @@index([userId, loggedAt])
+  @@map("symptom_logs")
+}
+
+// ─── Mood ────────────────────────────────────────────────────────────────────
+
+model MoodLog {
+  id          String   @id @default(uuid())
+  userId      String
+  moodScore   Int // 1–5
+  energyLevel Int? // 1–5
+  stressLevel Int? // 1–5
+  notes       String?
+  loggedAt    DateTime @default(now())
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, loggedAt])
+  @@map("mood_logs")
+}
+
+// ─── Medications ─────────────────────────────────────────────────────────────
+
+model Medication {
+  id        String   @id @default(uuid())
+  userId    String
+  name      String
+  dosage    String? // e.g. "500mg"
+  frequency String? // e.g. "twice daily"
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  user User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  logs MedicationLog[]
+
+  @@map("medications")
+}
+
+model MedicationLog {
+  id           String    @id @default(uuid())
+  userId       String
+  medicationId String
+  taken        Boolean
+  takenAt      DateTime?
+  notes        String?
+  createdAt    DateTime  @default(now())
+
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  medication Medication @relation(fields: [medicationId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@map("medication_logs")
+}
+
+// ─── Habits ──────────────────────────────────────────────────────────────────
+
+model Habit {
+  id           String            @id @default(uuid())
+  userId       String? // null = system default
+  name         String
+  trackingType HabitTrackingType
+  unit         String? // e.g. "hours", "glasses"
+  isActive     Boolean           @default(true)
+
+  user User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  logs HabitLog[]
+
+  @@map("habits")
+}
+
+model HabitLog {
+  id            String   @id @default(uuid())
+  userId        String
+  habitId       String
+  valueBoolean  Boolean? // for BOOLEAN habits
+  valueNumeric  Float? // for NUMERIC habits
+  valueDuration Int? // minutes, for DURATION habits
+  notes         String?
+  loggedAt      DateTime @default(now())
+  createdAt     DateTime @default(now())
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  habit Habit @relation(fields: [habitId], references: [id], onDelete: Cascade)
+
+  @@index([userId, loggedAt])
+  @@map("habit_logs")
 }
