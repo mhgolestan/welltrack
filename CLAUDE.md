@@ -70,16 +70,33 @@ Copy `backend/.env.example` to `backend/.env` before starting the server.
 
 ## Git Workflow
 When completing tasks from TASKS.md:
+1. Create a new branch named `feature/<task-number>-<brief-description>` before starting work
+2. Make atomic commits with conventional commit messages:
+   - feat: for new features
+   - fix: for bug fixes
+   - docs: for documentation
+   - test: for tests
+   - refactor: for refactoring
+3. After completing a task, create a pull request with:
+   - A descriptive title matching the task
+   - A summary of changes made
+   - Any testing notes or considerations
+4. Update the task checkbox in TASKS.md to mark it complete
 
-Create a new branch named feature/<task-number>-<brief-description> before starting work
-Make atomic commits with conventional commit messages:
-feat: for new features
-fix: for bug fixes
-docs: for documentation
-test: for tests
-refactor: for refactoring
-After completing a task, create a pull request with:
-A descriptive title matching the task
-A summary of changes made
-Any testing notes or considerations
-Update the task checkbox in TASKS.md to mark it complete
+## Testing Requirements
+Before marking any task as complete:
+1. Write unit tests for new functionality
+2. Run the full test suite with: `npm test`
+3. If tests fail:
+ - Analyze the failure output
+ - Fix the code (no the tests, unless tests are incorrect)
+ - Re-run tests until all pass
+4. For API endpoints, include integration tests that verify:
+ - Success responses with valid input
+ - Authentication requirements
+ - Edge cases
+## Test Commands
+- Backend tests: `cd backend && npm test`
+- Frontend tests: `cd frontend && npm test`
+- Run specific test file: `npm test -- path/to/test.ts`
+- Run test matching pattern: `npm test -- --grep "pattern"`
