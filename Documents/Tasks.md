@@ -16,14 +16,14 @@ Checkboxes track completion. Tasks are ordered by dependency — complete earlie
 
 ### Database Schema & Migrations
 - [x] Write Prisma schema for `User` model
-- [ ] Write Prisma schema for `Symptom` and `SymptomLog` models
-- [ ] Write Prisma schema for `MoodLog` model
-- [ ] Write Prisma schema for `Medication` and `MedicationLog` models
-- [ ] Write Prisma schema for `Habit` and `HabitLog` models
-- [ ] Add indexes on `(user_id, logged_at)` for all log tables
-- [ ] Run initial migration (`prisma migrate dev`)
-- [ ] Write seed script to insert default symptoms (Headache, Fatigue, Joint Pain, etc.)
-- [ ] Write seed script to insert default habits (Sleep Duration, Water Intake, Exercise, etc.)
+- [x] Write Prisma schema for `Symptom` and `SymptomLog` models
+- [x] Write Prisma schema for `MoodLog` model
+- [x] Write Prisma schema for `Medication` and `MedicationLog` models
+- [x] Write Prisma schema for `Habit` and `HabitLog` models
+- [x] Add indexes on `(user_id, logged_at)` for all log tables
+- [x] Run initial migration (`prisma migrate dev`)
+- [x] Write seed script to insert default symptoms (Headache, Fatigue, Joint Pain, etc.)
+- [x] Write seed script to insert default habits (Sleep Duration, Water Intake, Exercise, etc.)
 
 ### Authentication
 - [x] Implement `POST /api/auth/register` — hash password with bcrypt, return JWT
