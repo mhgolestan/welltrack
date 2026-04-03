@@ -11,8 +11,8 @@ Checkboxes track completion. Tasks are ordered by dependency — complete earlie
 - [ ] Set up folder structure (`src/routes`, `src/controllers`, `src/middleware`, `src/lib`)
 - [ ] Configure environment variables (`.env`, `.env.example`) for DB URL, JWT secrets, etc.
 - [x] Set up ESLint + Prettier
-- [x] Initialize PostgreSQL database (local dev) or user docker container (prod)
-- [ ] Install and configure Prisma ORM, run `prisma init`
+- [ ] Initialize PostgreSQL database (local dev)
+- [x] Install and configure Prisma ORM, run `prisma init`
 
 ### Database Schema & Migrations
 - [ ] Write Prisma schema for `User` model
