@@ -8,7 +8,7 @@ Checkboxes track completion. Tasks are ordered by dependency — complete earlie
 
 ### Project Setup
 - [x] Initialize Node.js + Express project with TypeScript
-- [ ] Set up folder structure (`src/routes`, `src/controllers`, `src/middleware`, `src/lib`)
+- [x] Set up folder structure (`src/routes`, `src/controllers`, `src/middleware`, `src/lib`)
 - [ ] Configure environment variables (`.env`, `.env.example`) for DB URL, JWT secrets, etc.
 - [ ] Set up ESLint + Prettier
 - [ ] Initialize PostgreSQL database (local dev)
