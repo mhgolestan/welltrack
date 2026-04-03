@@ -7,7 +7,24 @@
       "Bash(npx tsc:*)",
       "Bash(npx ts-node:*)",
       "Bash(curl -s http://localhost:3000/health)",
-      "Bash(kill %1)"
+      "Bash(kill %1)",
+      "Bash(git -C /Users/mohammadhosseingolestan/Documents/GitHub/learn-claude/welltrack checkout main)",
+      "Bash(git -C /Users/mohammadhosseingolestan/Documents/GitHub/learn-claude/welltrack checkout -b task/auth-register)",
+      "Bash(node_modules/.bin/jest src/__tests__/auth.register.test.ts --verbose)",
+      "Bash(node_modules/.bin/jest src/__tests__/auth.register.test.ts --verbose --forceExit)",
+      "Bash(node_modules/.bin/jest \"auth.register\" --forceExit)",
+      "Bash(node_modules/.bin/jest --forceExit)",
+      "Bash(git -C /Users/mohammadhosseingolestan/Documents/GitHub/learn-claude/welltrack add backend/prisma/schema.prisma backend/prisma/migrations/ backend/src/app.ts backend/src/lib/prisma.ts backend/src/lib/jwt.ts backend/src/controllers/auth.controller.ts backend/src/routes/auth.routes.ts backend/src/__tests__/auth.register.test.ts backend/jest.config.js backend/jest.setup.js backend/package.json backend/package-lock.json Documents/Tasks.md)",
+      "Bash(git -C /Users/mohammadhosseingolestan/Documents/GitHub/learn-claude/welltrack commit -m ':*)",
+      "Bash(git -C /Users/mohammadhosseingolestan/Documents/GitHub/learn-claude/welltrack push -u origin task/auth-register)",
+      "Bash(gh pr create --title 'Implement POST /api/auth/register' --body ':*)",
+      "Bash(PRISMA_USER_CONSENT_FOR_DANGEROUS_AI_ACTION=\"yes\" node_modules/.bin/prisma migrate reset --force)",
+      "Bash(node_modules/.bin/prisma migrate:*)",
+      "Bash(node_modules/.bin/prisma generate:*)",
+      "Bash(node_modules/.bin/ts-node prisma/seed.ts)",
+      "Bash(git -C /Users/mohammadhosseingolestan/Documents/GitHub/learn-claude/welltrack add backend/prisma/schema.prisma backend/prisma/migrations/ backend/prisma/seed.ts backend/package.json Documents/Tasks.md)",
+      "Bash(git -C /Users/mohammadhosseingolestan/Documents/GitHub/learn-claude/welltrack push -u origin task/db-schema-all-models)",
+      "Bash(gh pr create --title 'Database Schema & Migrations: all models, indexes, migration, seeds' --body ':*)"
     ]
   }
 }
